@@ -1,7 +1,7 @@
-import './ExpenceForm.css';
+import './ExpenseForm.css';
 import { useState } from 'react';
 
-const ExpenceForm = (props) => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle]= useState('');
     const [enteredAmount, setEnteredAmount]= useState('');
     const [enteredDate, setEnteredDate]= useState('');
@@ -41,7 +41,7 @@ const ExpenceForm = (props) => {
                 <label>date</label>
                 <input type="date" min='2019-01-01' max='2022-12-31' value={enteredDate} onChange={dateChangeHandler}/>
             </div>
-            <div className="new-expence__actions">
+            <div className="new-expense__actions">
                 <button type="submit">Add Expense</button>
             </div>
         </div>
@@ -49,4 +49,4 @@ const ExpenceForm = (props) => {
   )
 }
 
-export default ExpenceForm
+export default ExpenseForm

@@ -9,7 +9,6 @@ const ExpenseItems = (props) => {
   const [amount, setAmount] = useState(props.amount);
   const [date, setDate] = useState(props.date);
 
-   
   return (
     <Card className="expense-item">
       <div>
