@@ -1,14 +1,15 @@
-import React from "react";
-import ExpenseForm from "./ExpenseForm";
-import "./NewExpense.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ExpenseForm from './ExpenseForm';
+import './NewExpense.css';
 
-const NewExpense = (props) => {
+function NewExpense({ onAddExpense }) {
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: (Math.random() * 10).toString(),
     };
-    props.onAddExpense(expenseData);
+    onAddExpense(expenseData);
   };
 
   return (
@@ -16,6 +17,10 @@ const NewExpense = (props) => {
       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
+}
+
+NewExpense.propTypes = {
+  onAddExpense: PropTypes.func.isRequired,
 };
 
 export default NewExpense;

@@ -1,14 +1,10 @@
-import React from "react";
-import "./ExpenseItem.css";
-import Card from "../UI/Card";
-import ExpenseDate from "./ExpenseDate";
-import { useState } from "react";
+import React from 'react';
+import './ExpenseItem.css';
+import PropTypes from 'prop-types';
+import Card from '../UI/Card';
+import ExpenseDate from './ExpenseDate';
 
-const ExpenseItems = (props) => {
-  const [title, setTitle] = useState(props.title);
-  const [amount, setAmount] = useState(props.amount);
-  const [date, setDate] = useState(props.date);
-
+function ExpenseItems({ title, amount, date }) {
   return (
     <Card className="expense-item">
       <div>
@@ -20,6 +16,12 @@ const ExpenseItems = (props) => {
       <div className="expense-item__price">{amount}</div>
     </Card>
   );
+}
+
+ExpenseItems.propTypes = {
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
 };
 
 export default ExpenseItems;

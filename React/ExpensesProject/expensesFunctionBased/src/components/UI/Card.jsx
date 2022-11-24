@@ -1,11 +1,20 @@
 import React from 'react';
 import './Card.css';
+import PropTypes from 'prop-types';
 
-const Card = (props) => {
-    const classes = `card ${props.className}`
+function Card({ className, children }) {
+  const classes = `card ${className}`;
   return (
-    <div className={classes}>{props.children}</div>
-  )
+    <div className={classes}>{children}</div>
+  );
 }
 
-export default Card
+Card.propTypes = {
+  className: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default Card;
