@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import './ExpenseForm.css';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -32,16 +31,22 @@ function ExpenseForm({ onSaveExpenseData }) {
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label>Title</label>
-          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+          <label htmlFor="text_input">
+            Title
+            <input type="text" id="text_input" value={enteredTitle} onChange={titleChangeHandler} />
+          </label>
         </div>
         <div className="new-expense__control">
-          <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" value={enteredAmount} onChange={amountChangeHandler} />
+          <label htmlFor="amount_input">
+            Amount
+            <input type="number" min="0.01" step="0.01" value={enteredAmount} id="amount_input" onChange={amountChangeHandler} />
+          </label>
         </div>
         <div className="new-expense__control">
-          <label>date</label>
-          <input type="date" min="2019-01-01" max="2022-12-31" value={enteredDate} onChange={dateChangeHandler} />
+          <label htmlFor="date_input">
+            date
+            <input type="date" min="2019-01-01" max="2022-12-31" id="date_input" value={enteredDate} onChange={dateChangeHandler} />
+          </label>
         </div>
         <div className="new-expense__actions">
           <button type="submit">Add Expense</button>
